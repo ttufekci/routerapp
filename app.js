@@ -18,12 +18,6 @@ var productlist = Vue.component('productlist', {
   },
   methods: {
     keyup: function (index, event) {
-      console.log('keyup');
-      console.log(event.target.tagName);
-      console.log(event.target);
-      console.log(event); 
-      console.log(index); 
-
       var dataItem = this.productlistarr[index];
       var unitprice = dataItem.unitprice;
       var quantity = dataItem.quantity;
