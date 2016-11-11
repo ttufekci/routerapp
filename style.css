@@ -1,0 +1,103 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#baslik {
+    background-color: azure;
+    text-align: center;
+    height: 160px;
+    color: chartreuse;
+    font-family: fantasy;
+    font-size: 28px;
+    padding-top: 2px;
+}
+
+#yanbaslik {
+    font-weight: bold;
+    color: red;
+}
+
+#baslikimg {
+    float: left;
+    margin-left: 220px;
+    text-align: left;
+    padding-top: 10px;
+}
+
+#baslikyazi {
+    text-align: center;
+    margin-left: 70px;
+    float: left;
+    padding-top: 14px;
+}
+
+#mainarea {
+    text-align: center;
+}
+
+#mainarea div {
+    text-align: center;
+}
+
+#mainarea table {
+    margin: 0 auto;
+    width: 800px;
+}
+
+#mainarea h3 {
+    color: #4CAF50;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#totalprice {
+    font-weight: bold;
+    font-size: 1.3em;
+    position: relative;
+    left: 90px;
+}
+
+#totalpricepayment {
+    font-weight: bold;
+    font-size: 1.3em;
+    position: relative;
+    left: 0;    
+}
+
+#devambtn {
+    margin-left: 10px;
+}
+
+#devambtncontainer {
+    float: right;
+}
+
+#backbtncontainer {
+    float: left;
+}
+
+#alttoplam {
+    padding-top: 20px;
+    background-color: lavender;    
+}
+
+#tablecontainer {
+    width: 800px;
+    margin: 0 auto;
+}

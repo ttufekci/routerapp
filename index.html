@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="style.css" rel="stylesheet">
+        <script src="https://unpkg.com/vue@2.0.3/dist/vue.js"></script>   
+        <script src="https://unpkg.com/vue-router@2.0.1"></script>
+    </head>
+    <body>
+        <div id="app">
+            <div id="baslik">
+                <div id="baslikimg">
+                    <img src="comp.png"></img>
+                </div>
+                <div id="baslikyazi">
+                    <p>
+                        Bilgisayar Malzemeleri (Ucuz ve Kaliteli)
+                    </p>
+                </div>
+            </div>
+            <div id="mainarea">
+                <router-view :price="totalprice"></router-view>
+            </div>
+        </div>
+        <script type="text/x-template" id="productlisttemp">
+            <div id="tablecontainer">
+                <h3>{{message}}</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ürün</th><th>Birim Fiyat</th><th>Adet</th><th>Tutar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item, index) in productlistarr">
+                            <td>{{item.name}}</td><td>{{item.unitprice}}</td>
+                            <td><input type="text" v-model='item.quantity' v-on:keyup="keyup(index,$event)"/></td>
+                            <td>{{item.price}}</td>
+                        </tr>
+                    </tbody>            
+                </table>
+                
+                <div id="alttoplam">
+                    <span id="totalprice">Total Price: {{totalprice}}</span>
+
+                    <div id="devambtncontainer">
+                        <button id="devambtn" v-on:click="routetopayment">Devam (Ödeme Bilgileri) --></button>
+                    </div>
+                </div>
+            </div>       
+        </script>
+        <script type="text/x-template" id="paymenttemp">
+            <div id="tablecontainer">
+                <h3>{{message}}</h3>
+                <table>
+                    <tr><td>Kredi Kartı No</td><td><input type="text" v-model='kredikartinfo.no'/></td></tr>
+                    <tr><td>Geçerlilik ay/yıl</td>
+                        <td>
+                            <select v-model='kredikartinfo.gecerlilik'>
+                                <option>12/16</option>
+                                <option>01/17</option>
+                                <option>02/17</option>
+                                <option>03/17</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr><td>Kart Türü</td>
+                        <td>
+                            <select v-model='kredikartinfo.turu'>
+                                <option>Master</option>
+                                <option>Visa</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+
+                <div id="alttoplam">
+                    <span id="totalpricepayment">Total: {{price}}</span>
+
+                    <div id="backbtncontainer">
+                        <button id="backbtn" v-on:click="routetoprodlist">Geri (Ürün Listesi)</button>
+                    </div>
+                    <div id="devambtncontainer">
+                        <button id="devambtn" v-on:click="routetoshipment">Devam (Kargo Seç) --></button>
+                    </div>                    
+                </div>                
+            </div>
+        </script>
+        <script type="text/x-template" id="shipmenttemp">
+            <div id="tablecontainer">
+                <h3>{{message}}</h3>
+                <table>
+                    <tr><td>Kargo Firması</td>
+                        <td>
+                            <select v-model='kargo'>
+                                <option>Firma A</option>
+                                <option>Hızlı Kargo</option>
+                                <option>Kargo B</option>
+                            </select>                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Adres</td>
+                        <td>
+                            <textarea rows="5" cols="30" v-model='adres'></textarea>
+                        </td>
+                    </tr>
+                </table>
+                <div id="alttoplam">
+                    <span id="totalpricepayment">Total: {{price}}</span>
+
+                    <div id="backbtncontainer">
+                        <button id="backbtn" v-on:click="routetopayment">Geri (Ödeme)</button>
+                    </div>
+                    <div id="devambtncontainer">
+                        <button id="devambtn" v-on:click="routetoapprovement">Onayla (İşlemi Tamamla) --></button>
+                    </div>                    
+                </div>                 
+            </div>
+        </script>
+        <script type="text/x-template" id="approvementtemp">
+            <div id="tablecontainer">
+                <h3>{{message}}</h3>
+                <table>
+                    <tr><td>Satışınız onaylandı. Tebrikler</td></tr>
+                </table>           
+            </div>
+        </script>
+        <script src="app.js"></script> 
+    </body>
+</html>
